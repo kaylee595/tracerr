@@ -59,6 +59,18 @@ func Wrap(err error) Error {
 	return trace(err, 2)
 }
 
+// Wrap1 adds stacktrace to existing error.
+func Wrap1[T any](v T, err error) (T, Error) {
+	if err == nil {
+		return v, nil
+	}
+	e, ok := err.(Error)
+	if ok {
+		return v, e
+	}
+	return v, trace(err, 2)
+}
+
 // Unwrap returns the original error.
 func Unwrap(err error) error {
 	if err == nil {
