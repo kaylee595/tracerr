@@ -10,10 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ztrue/tracerr"
+	"github.com/kaylee595/tracerr"
 )
 
-//
 type PrintTestCase struct {
 	Output               string
 	Printer              func()
